@@ -13,7 +13,6 @@ session_start();
 
 //Обсалютный путь до корня папки проекта
 define('ROOT', dirname(__FILE__));
-define('SITEFOLDER', "/GameNewsPortal");
 
 //Класс для автозагрузки классов в проекте
 require_once(ROOT.'/components/Autoload.php');

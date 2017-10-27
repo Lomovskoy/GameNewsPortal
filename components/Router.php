@@ -30,7 +30,7 @@ class Router
      */
     private function getURI() {
         if (!empty($_SERVER['REQUEST_URI'])) {
-            return trim(substr($_SERVER['REQUEST_URI'], strlen(SITEFOLDER)), '/');
+            return trim(substr($_SERVER['REQUEST_URI'], strlen(dirname($_SERVER['SCRIPT_NAME']))), '/');
         }
     }
 
@@ -41,9 +41,7 @@ class Router
     {
         // Получаем строку запроса
         $uri = $this->getURI();
-        
-        //echo $uri;
-        
+
         // Проверяем наличие такого запроса в массиве маршрутов (routes.php)
         foreach ($this->routes as $uriPattern => $path) {
 

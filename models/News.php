@@ -29,7 +29,9 @@ class News {
             post_or_news.news_or_forum = 0
         AND 
             post_or_news.public_flag = 1
-          ORDER BY `post_or_news`.`date` DESC
+        ORDER BY 
+            `post_or_news`.`date` 
+        DESC
         LIMIT :count';
 
         // Используется подготовленный запрос
@@ -41,9 +43,7 @@ class News {
 
         // Выполнение коменды
         $result->execute();
-        //echo '<pre>';
-        //print_r($result);
-        //echo '</pre>';
+        
         // Получение и возврат результатов
         $i = 0;
         $newsList = array();
@@ -52,42 +52,11 @@ class News {
             $newsList[$i]['section_name'] = $row['section_name'];
             $newsList[$i]['caption'] = $row['caption'];
             $newsList[$i]['image'] = $row['image'];
-            $newsList[$i]['date'] = $row['date'];
+            $newsList[$i]['date'] = TimeConverter::time_elapsed_string($row['date'],2);
             $newsList[$i]['folder_name'] = $row['folder_name'];
             $i++;
         }
         
-        echo '<pre>';
-        $post_tyme = $newsList[0]['date'];
-        $today = date("Y-m-d H:i:s");
-        
-        print_r('Время поста:   '.$post_tyme.' - '.gettype($post_tyme));
-        echo '<br>';
-        print_r('Текущее время: '.$today.' - '.gettype($today));
-        echo '<br>';
-        $unix_post_time = strtotime($post_tyme);
-        print_r('Время поста в UNIX:   '.$unix_post_time.' - '.gettype($unix_post_time));
-        echo '<br>';
-        $unix_time_today = strtotime($today);
-        print_r('Текущее время в UNIX: '.$unix_time_today.' - '.$unix_time_today);
-        echo '<br>';
-        $difference_in_time = $unix_time_today - $unix_post_time;
-        print_r('Разница во времени UNIX: '.$difference_in_time.' - '.gettype($difference_in_time));
-        echo '<br>';
-        //print_r('Разница во времени: '.date('H:i:s d-m-Y', $difference_in_time));
-        //print_r(date("d.m.Y", $difference_in_time));
-        /*function second_v_date($sekund)
-        {
-            $dt = new DateTime('@' . $sekund);
-            return array('days'    => $dt->format('z'),
-                         'hours'   => $dt->format('G'),
-                         'minutes' => $dt->format('i'),
-                         'seconds' => $dt->format('s'));
-        }
-        
-        print_r(fsecond_v_date($difference_in_time));*/
-        
-        echo '</pre>';
         
         return $newsList;
     }

@@ -7,6 +7,11 @@
 class SiteController
 {
 
+    /**
+     * @return boolean
+     * Этот метод отдаёт всю информацию о главной странице
+     * (Категории, Последние новости, текст на главнйо странице)
+     */
     public function actionIndex()
     {
         // Список категорий для левого меню
@@ -23,5 +28,5 @@ class SiteController
         return true;
     }
 
-    
+
 }

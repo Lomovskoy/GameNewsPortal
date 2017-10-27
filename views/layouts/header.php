@@ -5,17 +5,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <!-- Bootstrap CSS -->
-        <link href="<?PHP echo SITEFOLDER;?>/template/css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?PHP echo SITEFOLDER;?>/template/css/bootstrap-reboot.min.css" rel="stylesheet">
-        <link href="<?PHP echo SITEFOLDER;?>/template/css/font-awesome.min.css" rel="stylesheet">
-        <link href="<?PHP echo SITEFOLDER;?>/template/css/mystyle.css" rel="stylesheet">
         <title>Игровой форум</title>
+        <base href="/GameNewsPortal/">
+        <!-- Bootstrap CSS -->
+        <link href="template/css/bootstrap.min.css" rel="stylesheet">
+        <link href="template/css/bootstrap-reboot.min.css" rel="stylesheet">
+        <link href="template/css/font-awesome.min.css" rel="stylesheet">
+        <link href="template/css/mystyle.css" rel="stylesheet">
+        
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="<?PHP echo SITEFOLDER;?>/"><span class="<?PHP echo $categories[0]['icon']; ?>"></span>
+                <a class="navbar-brand" href="category-<?PHP echo $categories[0]['id']; ?>"><span class="<?PHP echo $categories[0]['icon']; ?>"></span>
                     <?PHP echo $categories[0]['name']; ?></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" 
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
@@ -29,7 +31,7 @@
                                 continue;
                             endif; ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?PHP echo SITEFOLDER;?>/NewsList"><span class="<?PHP echo $category['icon']; ?>"></span>&nbsp
+                            <a class="nav-link" href="category-<?PHP echo $category['id']; ?>"><span class="<?PHP echo $category['icon']; ?>"></span>&nbsp
                                 <?PHP echo $category['name']; ?></a>
                         </li>
                         <?PHP endforeach; ?>

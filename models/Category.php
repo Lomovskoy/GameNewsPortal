@@ -5,7 +5,10 @@
  */
 class Category
 {
-
+    /**
+     * @return type
+     * метод getCategoriesList получить лист категорий
+     */
     public static function getCategoriesList()
     {
         // Соединение с БД
@@ -23,12 +26,44 @@ class Category
             $categoryList[$i]['icon'] = $row['icon'];
             $i++;
         }
-        //echo '<pre>';
-        //print_r($categoryList);
-        //echo '</pre>';
+
         return $categoryList;
     }
+    
+    /**
+     * @return type
+     * метод getSectionListById получить лист разделов
+     */
+    public static function getSectionListById($id)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+        
+        // Запрос к БД
+        $sql = 'SELECT id, name, icon, folder_name FROM sections WHERE id_categories = :id';
+        
+        // Используется подготовленный запрос
+        $result = $db->prepare($sql);
 
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
 
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+
+        // Выполнение коменды
+        $result->execute();
+        
+        $i = 0;
+        $sectionList = array();
+        while ($row = $result->fetch()) {
+            $sectionList[$i]['id'] = $row['id'];
+            $sectionList[$i]['name'] = $row['name'];
+            $sectionList[$i]['icon'] = $row['icon'];
+            $sectionList[$i]['folder_name'] = $row['folder_name'];
+            $i++;
+        }
+
+        return $sectionList;
+    }
 
 }

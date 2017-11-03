@@ -34,13 +34,13 @@ class Category
      * @return type
      * метод getSectionListById получить лист разделов
      */
-    public static function getSectionListById($id)
+    public static function getSectionByCategories($id)
     {
         // Соединение с БД
         $db = Db::getConnection();
         
         // Запрос к БД
-        $sql = 'SELECT id, name, icon, folder_name FROM sections WHERE id_categories = :id';
+        $sql = 'SELECT id, name, icon, folder_name, id_categories FROM sections WHERE id_categories = :id';
         
         // Используется подготовленный запрос
         $result = $db->prepare($sql);
@@ -60,6 +60,7 @@ class Category
             $sectionList[$i]['name'] = $row['name'];
             $sectionList[$i]['icon'] = $row['icon'];
             $sectionList[$i]['folder_name'] = $row['folder_name'];
+            $sectionList[$i]['id_categories'] = $row['id_categories']; 
             $i++;
         }
 

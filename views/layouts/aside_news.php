@@ -2,7 +2,8 @@
     <div class="card">
         <div class="list-group list-group-flush">
             <?php foreach ($sections as $section): ?>
-            <a href="section-<?php echo $section['id']; ?>" class="list-group-item focus">
+            <a href="category-<?php echo $section['id_categories']; ?>/section-<?php echo $section['id']; ?>" 
+               class="list-group-item focus">
                 <?php echo $section['icon']; ?>
                 &nbsp<?php echo $section['name']; ?>
             </a>

@@ -84,8 +84,9 @@ class Router
                 /* Вызываем необходимый метод ($actionName) у определенного 
                  * класса ($controllerObject) с заданными ($parameters) параметрами
                  */
+                //print_r($parameters);
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
-
+                
                 // Если метод контроллера успешно вызван, завершаем работу роутера
                 if ($result != null) {
                     break;

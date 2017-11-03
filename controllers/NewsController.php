@@ -12,11 +12,11 @@ class NewsController {
     public function actionIndex($id)
     {
 
-        // Список категорий для левого меню
+        // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
 
         // Список разделов кaегории
-        $sections = Category::getSectionListById($id);
+        $sections = Category::getSectionByCategories($id);
 
         // Список последних новостей
         $latestNews = News::getIndexNewsList(12);
@@ -27,4 +27,38 @@ class NewsController {
         return true;
     }
     
+    public function actionSection($categoryi_d1, $section_id)
+    {
+        // Список категорий для верхнего меню
+        $categories = Category::getCategoriesList();
+
+        // Список разделов кaегории
+        $sections = Category::getSectionByCategories($categoryi_d1);
+
+        // Список всех новостей раздела
+        $len = 500;
+        $sectionNews = News::getNewsBySection($section_id, $len);
+        
+        // Подключаем вид
+        require_once(ROOT . '/views/site/sectionNews.php');
+
+        return true;
+    }
+    
+    public function actionOneNew($categoryi_d1, $new_id)
+    {
+        // Список категорий для верхнего меню
+        $categories = Category::getCategoriesList();
+
+        // Список разделов кaегории
+        $sections = Category::getSectionByCategories($categoryi_d1);
+
+        // Получение одной новости
+        $New = News::getOneNewsById($new_id);
+        
+        // Подключаем вид
+        require_once(ROOT . '/views/site/oneNew.php');
+
+        return true;
+    }
 }

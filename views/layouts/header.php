@@ -44,11 +44,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="fa fa-check-square-o"></span>  Регистрация</a>
                         </li>
+                        <?PHP if (isset($_SESSION['user'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="fa fa-sign-in"></span>  Вход</a>
+                            <a class="nav-link" href="login_out"><span class="fa fa-sign-in"></span>  Выход</a>
                         </li>
+                        <?PHP endif; ?>
+                        <?PHP if (!isset($_SESSION['user'])): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login_form"><span class="fa fa-sign-in"></span>  Вход</a>
+                        </li>
+                        <?PHP endif; ?>
                     </ul>
                 </div>
             </nav>
         </header>
-

@@ -9,10 +9,9 @@ class News {
     const SHOW_BY_DEFAULT = 12;
 
     /**
-     * 
+     * Возвращает лист всех новостей по дате добавления
      * @param type $count
      * @return type
-     * Возвращает лист всех новостей по дате добавления
      */
     public static function getIndexNewsList($count = self::SHOW_BY_DEFAULT) {
         // Соединение с БД
@@ -68,10 +67,9 @@ class News {
     }
 
     /**
-     * 
+     * Возвращает новсти по разелу категории
      * @param type $id
      * @return type
-     * Возвращает новсти по разелу категории
      */
     public static function getNewsBySection($id, $len = 0) {
         
@@ -138,6 +136,11 @@ class News {
         return $news;
     }
     
+    /**
+     * Достать одну новость то идентификатору
+     * @param type $id
+     * @return type
+     */
     public static function getOneNewsById($id){
         
         // Соединение с БД

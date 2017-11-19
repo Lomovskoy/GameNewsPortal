@@ -27,7 +27,7 @@
                                     <hr>
                                     <p class="m-0"><?PHP echo $News['description']; ?></p>
                                     <p class="m-0">
-                                        <span class="float-right text-warning small font-italic"><?PHP echo $News['date']; ?></span>
+                                        <span class="float-right text-danger small font-italic"><?PHP echo $News['date']; ?></span>
                                         <span class="text-success">Автор: <?PHP echo $News['author_login']; ?></span>
                                     </p>
                                 </div>

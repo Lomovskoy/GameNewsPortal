@@ -27,6 +27,13 @@ class NewsController {
         return true;
     }
     
+    /**
+     * 
+     * @param type $categoryi_d1
+     * @param type $section_id
+     * @return boolean
+     * Метод для работы со всеми новостями раздела
+     */
     public function actionSection($categoryi_d1, $section_id)
     {
         // Список категорий для верхнего меню
@@ -45,6 +52,13 @@ class NewsController {
         return true;
     }
     
+    /**
+     * 
+     * @param type $categoryi_d1
+     * @param type $new_id
+     * @return boolean
+     * Метод для показа одной новости
+     */
     public function actionOneNew($categoryi_d1, $new_id)
     {
         // Список категорий для верхнего меню

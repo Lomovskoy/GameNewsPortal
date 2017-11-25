@@ -26,7 +26,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <?php foreach ($categories as $key => $category): 
+                        <?php foreach ($categories as $key => $category):
                             if ($key == 0):
                                 continue;
                             endif; ?>
@@ -41,15 +41,18 @@
                         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Поиск</button>
                     </form>
                     <ul class="form-inline my-2 my-lg-0 navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="fa fa-check-square-o"></span>  Регистрация</a>
-                        </li>
                         <?PHP if (isset($_SESSION['user'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="login_out"><span class="fa fa-sign-in"></span>  Выход</a>
+                            <a class="nav-link" href="logincheck"><span class="fa fa-share-square-o"></span>  Кабинет</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login_out"><span class="fa fa-sign-out"></span>  Выход</a>
                         </li>
                         <?PHP endif; ?>
                         <?PHP if (!isset($_SESSION['user'])): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span class="fa fa-check-square-o"></span>  Регистрация</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="login_form"><span class="fa fa-sign-in"></span>  Вход</a>
                         </li>

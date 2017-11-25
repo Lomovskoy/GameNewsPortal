@@ -70,9 +70,9 @@ class RegistrationController {
 
             //Идентификвця пользователя
             $userId = Registration::getUserByLogin($login, $password);
-            echo '<pre>';
-            print_r($userId);
-            echo '</pre>';
+//            echo '<pre>';
+//            print_r($userId);
+//            echo '</pre>';
             if ($userId == false) {
                 // Если данные неправильные - показываем ошибку
                 array_push($errors, 'Неправильные данные для входа на сайт<br>');
@@ -82,16 +82,37 @@ class RegistrationController {
                 // Записываем идентификатор пользователя в сессию
                 $_SESSION['user'] = $userId;
                 
+                if ($_SESSION['user']['rang'] == 1){
+                    require_once(ROOT . '/views/admin/adin_panel.php');
+                    exit;
+                }
                 // Перенаправляем пользователя в закрытую часть - кабинет 
                 require_once(ROOT . '/views/admin/adin_panel.php');
                 exit;
             }
         }
-
-        // Подключаем вид
-        require_once(ROOT . '/views/site/login_form.php');
-        return true;
+        
+        //если мы просто перешли в личный кабинет а не прошли идентификации
+        if (!isset($_SESSION['user'])){
+            // Подключаем вид
+            require_once(ROOT . '/views/site/login_form.php');
+            return true;
+        
+        }elseif (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['rang'] == 1){
+                    require_once(ROOT . '/views/admin/adin_panel.php');
+                    exit;
+                }
+                // Перенаправляем пользователя в закрытую часть - кабинет 
+                require_once(ROOT . '/views/admin/adin_panel.php');
+                exit;
+        }
     }
+    /**
+     * Метод выхода из сессии
+     * @return boolean
+     * 
+     */
     public function actionLoginOut(){
         
         unset($_SESSION["user"]);

@@ -1,6 +1,9 @@
 <?php
 //Массив с роутами (путями) для класса Router
 return array(
+    
+    //Изменить информацию пользователя
+    'change_form/([0-9]+)' => 'user/changeForm/$1', 
     //Выход из сессии
     'login_out' => 'registration/loginOut',
     

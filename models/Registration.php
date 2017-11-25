@@ -45,4 +45,32 @@ class Registration {
         }
         return false;
     }
+    
+    public static function getGreeting(){
+        
+        $greeting = 'Такого пользователя не существует';
+        
+        if(isset($_SESSION['user'])){
+            
+            if($_SESSION['user']['rang'] == 1){
+                $greeting = 'Пользователь '.$_SESSION['user']['login'];
+            }
+            else if($_SESSION['user']['rang'] == 2){
+                $greeting = 'Модератор новостей '.$_SESSION['user']['login'];
+            }
+            else if($_SESSION['user']['rang'] == 3){
+                $greeting = 'Модератор форума '.$_SESSION['user']['login'];
+            }
+            else if($_SESSION['user']['rang'] == 4){
+                $greeting = 'Администратор новостей'.$_SESSION['user']['login'];
+            }
+            else if($_SESSION['user']['rang'] == 5){
+                $greeting = 'Администратор форума '.$_SESSION['user']['login'];
+            }
+            else if($_SESSION['user']['rang'] == 6){
+                $greeting = 'Главный администратор '.$_SESSION['user']['login'];
+            }
+        }
+        return $greeting;
+    }
 }

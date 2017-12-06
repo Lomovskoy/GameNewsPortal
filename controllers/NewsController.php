@@ -9,14 +9,14 @@ class NewsController {
      * Этот метод отдаёт всё необходимое для стнаицы новостей
      * (Категории, Разделы, Последние новости)
      */
-    public function actionIndex($id)
+    public function actionIndex($categoryi_id)
     {
 
         // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
 
         // Список разделов кaегории
-        $sections = Category::getSectionByCategories($id);
+        $sections = Category::getSectionByCategories($categoryi_id);
 
         // Список последних новостей
         $latestNews = News::getIndexNewsList(12);
@@ -34,13 +34,13 @@ class NewsController {
      * @return boolean
      * Метод для работы со всеми новостями раздела
      */
-    public function actionSection($categoryi_d1, $section_id)
+    public function actionSection($categoryi_id, $section_id)
     {
         // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
 
         // Список разделов кaегории
-        $sections = Category::getSectionByCategories($categoryi_d1);
+        $sections = Category::getSectionByCategories($categoryi_id);
 
         // Список всех новостей раздела
         $len = 500;
@@ -59,13 +59,13 @@ class NewsController {
      * @return boolean
      * Метод для показа одной новости
      */
-    public function actionOneNew($categoryi_d1, $new_id)
+    public function actionOneNew($categoryi_id, $new_id)
     {
         // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
 
         // Список разделов кaегории
-        $sections = Category::getSectionByCategories($categoryi_d1);
+        $sections = Category::getSectionByCategories($categoryi_id);
 
         // Получение одной новости
         $New = News::getOneNewsById($new_id);

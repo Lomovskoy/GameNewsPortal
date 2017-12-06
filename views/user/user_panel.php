@@ -5,7 +5,7 @@
         <h4 class="text-center mt-4">Добро пожаловать.</h4>
         
         <?php else:?>
-        <h4 class="text-center mt-4">Вам здесь не рады.</h4>
+        <h4 class="text-center mt-4">Вам здесь не рады....</h4>
             
         <?php endif;?>
     </div>    

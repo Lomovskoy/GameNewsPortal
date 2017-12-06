@@ -1,9 +1,18 @@
 <?php
 //Массив с роутами (путями) для класса Router
 return array(
+    //Регистрауция пользоватля
+    'ragistration_user' => 'user/registrationUser',
+    
+    //Форма регистрации пользоватля
+    'ragistration_form' => 'user/registrationForm',
+    
+    //Изменение информации о пользователе
+    'information_update/([0-9]+)' => 'user/informationUpdate/$1',
     
     //Изменить информацию пользователя
     'change_form/([0-9]+)' => 'user/changeForm/$1', 
+    
     //Выход из сессии
     'login_out' => 'registration/loginOut',
     

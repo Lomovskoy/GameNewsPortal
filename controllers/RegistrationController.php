@@ -69,10 +69,8 @@ class RegistrationController {
             }
 
             //Идентификвця пользователя
-            $userId = Registration::getUserByLogin($login, $password);
-//            echo '<pre>';
-//            print_r($userId);
-//            echo '</pre>';
+            $userId = User::getUserByLogin($login, $password);
+
             if ($userId == false) {
                 // Если данные неправильные - показываем ошибку
                 array_push($errors, 'Неправильные данные для входа на сайт<br>');

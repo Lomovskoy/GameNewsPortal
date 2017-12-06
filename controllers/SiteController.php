@@ -12,7 +12,7 @@ class SiteController
      * Этот метод отдаёт всю информацию о главной странице
      * (Категории, Последние новости, текст на главнйо странице)
      */
-    public function actionIndex($id = 1)
+    public function actionIndex($categoryi_id = 1)
     {
         // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
@@ -21,7 +21,7 @@ class SiteController
         $latestNews = News::getIndexNewsList(4);
 
         //Описаине сайта
-        $decoration = Decoration::getDescriptionTextById($id);
+        $decoration = Decoration::getDescriptionTextById($categoryi_id);
         
         // Подключаем вид
         require_once(ROOT . '/views/site/index.php');
@@ -33,13 +33,13 @@ class SiteController
      * Этот метод отдаёт всю информацию о странице контакты
      * (Категории, текст на странице)
      */
-    public function actionContacts($id = 3)
+    public function actionContacts($categoryi_id = 3)
     {
         // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
 
         //Описаине сайта
-        $decoration = Decoration::getDescriptionTextById($id);
+        $decoration = Decoration::getDescriptionTextById($categoryi_id);
         
         // Подключаем вид
         require_once(ROOT . '/views/site/contacts.php');
@@ -51,13 +51,13 @@ class SiteController
      * Этот метод отдаёт всю информацию о странице о нас
      * (Категории, текст на странице)
      */
-    public function actionAboutUs($id = 4)
+    public function actionAboutUs($categoryi_id = 4)
     {
         // Список категорий для верхнего меню
         $categories = Category::getCategoriesList();
 
         //Описаине сайта
-        $decoration = Decoration::getDescriptionTextById($id);
+        $decoration = Decoration::getDescriptionTextById($categoryi_id);
         
         //Список партнёров из папки в бд добавить название паки и название картинки и сслку
         

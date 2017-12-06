@@ -55,9 +55,9 @@ class Router
 
                 $segments = explode('/', $internalRoute);
 
-                //echo '<pre>';
-                //print_r($segments);
-                //echo '</pre>';
+//                echo '<pre>';
+//                print_r($segments);
+//                echo '</pre>';
                 
                 $controllerName = array_shift($segments) . 'Controller';
                 $controllerName = ucfirst($controllerName);

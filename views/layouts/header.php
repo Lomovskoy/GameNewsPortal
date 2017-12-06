@@ -31,7 +31,9 @@
                                 continue;
                             endif; ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="category-<?PHP echo $category['id']; ?>"><span class="<?PHP echo $category['icon']; ?>"></span>&nbsp
+                            <a class="nav-link <?PHP if ($category['id'] == $categoryi_id): echo 'active'; endif; ?> " href="category-<?PHP echo $category['id']; ?>">
+                                <span class="<?PHP echo $category['icon']; ?>">
+                                </span>&nbsp
                                 <?PHP echo $category['name']; ?></a>
                         </li>
                         <?PHP endforeach; ?>
@@ -51,7 +53,7 @@
                         <?PHP endif; ?>
                         <?PHP if (!isset($_SESSION['user'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="fa fa-check-square-o"></span>  Регистрация</a>
+                            <a class="nav-link" href="ragistration_form"><span class="fa fa-check-square-o"></span>  Регистрация</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="login_form"><span class="fa fa-sign-in"></span>  Вход</a>

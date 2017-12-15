@@ -1,6 +1,22 @@
 <?php
 //Массив с роутами (путями) для класса Router
 return array(
+    
+    //Добавить партнёра
+    'add_partners' => 'update/addPartners/',
+    
+    //Изменить партнёра
+    'update_partners/([0-9]+)' => 'update/partners/$1',
+    
+    //Изменить новость
+    'update_news_form' => 'news/updateForm',
+    
+    //Изменить присание сата
+    'decoration_update/([0-9]+)' => 'update/decorationUpdate/$1',
+    
+    //Изменить присание сата форма
+    'update_description_form' => 'update/descriptionForm',
+    
     //Регистрауция пользоватля
     'ragistration_user' => 'user/registrationUser',
     
@@ -36,6 +52,7 @@ return array(
     
     //О нас
     'category-(4)' => 'site/aboutUs/$1',
+    
     // Главная страница
     'category-(1)' => 'site/index/$1',
     'index.php' => 'site/index', // actionIndex в SiteController

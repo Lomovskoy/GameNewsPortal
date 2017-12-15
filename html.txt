@@ -1,9 +1,0 @@
-<link href="/ravoit/serials/template/css/bootstrap.min.css" rel="stylesheet">
-<link href="/ravoit/serials/template/css/bootstrap-reboot.min.css" rel="stylesheet">
-<link href="/ravoit/serials/template/css/font-awesome.min.css" rel="stylesheet">
-<link href="/ravoit/serials/template/css/main.css" rel="stylesheet">
-
-<script src="/ravoit/serials/template/js/jquery.min.js"></script>
-<script src="/ravoit/serials/template/js/popper.min.js"></script>
-<script src="/ravoit/serials/template/js/bootstrap.min.js"></script>
-<script src="/ravoit/serials/template/js/main.js"></script>

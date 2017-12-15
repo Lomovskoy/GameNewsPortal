@@ -1,6 +1,6 @@
         <footer><!--Footer-->
             <hr>
-            <p class="text-center">© Company 2017</p>
+            <p class="text-center">© Company 2017 - <?php $a = getdate(); echo $a['year']; ?></p>
         </footer><!--/Footer-->
 
         <!-- jQuery, Bootstrap JS. -->

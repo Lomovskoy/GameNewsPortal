@@ -75,4 +75,13 @@ class NewsController {
 
         return true;
     }
+    
+    public function actionUpdateForm(){
+        // Список категорий для верхнего меню
+        $categories = Category::getCategoriesList();
+        
+        // Подключаем вид
+        require_once(ROOT . '/views/admin/admin_news_update_form.php');
+        return true;
+    }
 }

@@ -13,10 +13,10 @@
              <?php if ($_SESSION['user']['rang']!= 1): ?> 
                 <div class="col-3">
                     <?php if ($_SESSION['user']['rang'] == 6): ?> 
-                        <input type="button" class="btn btn-outline-secondary btn-block" value="Редакт. описание сайта"/>
+                        <a href="update_description_form" class="btn btn-outline-secondary btn-block">Редакт. описание сайта</a>
                     <?php endif;?>
                     <input type="button" class="btn btn-outline-secondary btn-block" value="Редакт. комментарии"/> 
-                    <input type="button" class="btn btn-outline-secondary btn-block" value="Редакт. статью, новость"/>
+                    <a href="update_news_form" class="btn btn-outline-secondary btn-block">Редакт. статью, новость</a>
                 </div>   
                 <div class="col-3">
                     <?php if ($_SESSION['user']['rang'] == 6): ?> 

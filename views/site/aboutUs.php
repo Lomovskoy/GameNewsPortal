@@ -12,36 +12,15 @@
     </h5>
     <hr>
     <div class="row">
+        <?php foreach ($parners as $parner): ?>
         <div class="col-md-2">
             <div class="card mb-1">
-                <img class="img-fluid" src="upload/images/deskription/1.jpg">
+                <a href="<?php echo $parner['src']; ?>" target="_blank">
+                    <img class="img-fluid" src="upload/images/description/<?php echo $parner['image']; ?>" alt="Партнёр" >
+                </a>
             </div>
         </div>
-        <div class="col-md-2">
-            <div class="card mb-1">
-                <img class="img-fluid" src="upload/images/deskription/2.jpg">
-            </div>
-        </div>        
-        <div class="col-md-2">
-            <div class="card mb-1">
-                <img class="img-fluid" src="upload/images/deskription/3.jpg">
-            </div>
-        </div>        
-        <div class="col-md-2">
-            <div class="card mb-1">
-                <img class="img-fluid" src="upload/images/deskription/4.jpg">
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card mb-1">
-                <img class="img-fluid" src="upload/images/deskription/5.jpg">
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="card mb-1">
-                <img class="img-fluid" src="upload/images/deskription/6.jpg">
-            </div>
-        </div>
+        <?PHP endforeach; ?>
     </div>
 </div>
 

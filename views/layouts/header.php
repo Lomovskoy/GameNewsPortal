@@ -5,14 +5,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Игровой форум</title>
+        <title>Power Full - игровой форум</title>
         <base href="/GameNewsPortal/">
         <!-- Bootstrap CSS -->
         <link href="template/css/bootstrap.min.css" rel="stylesheet">
         <link href="template/css/bootstrap-reboot.min.css" rel="stylesheet">
         <link href="template/css/font-awesome.min.css" rel="stylesheet">
         <link href="template/css/mystyle.css" rel="stylesheet">
-        
+        <link rel="shortcut icon" href="template/icon/photo4.png" type="image/x-icon">
     </head>
     <body>
         <header>

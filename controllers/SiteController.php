@@ -60,6 +60,7 @@ class SiteController
         $decoration = Decoration::getDescriptionTextById($categoryi_id);
         
         //Список партнёров из папки в бд добавить название паки и название картинки и сслку
+        $parners = Decoration::getPartners();
         
         // Подключаем вид
         require_once(ROOT . '/views/site/aboutUs.php');

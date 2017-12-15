@@ -103,10 +103,6 @@ class User {
      */
     public static function updateImageUserById($id, $uploaddir, $name) {
 
-//        echo 'id = ' . $id . '<br>';
-//        echo 'uploaddir = ' . $uploaddir . '<br>';
-//        echo 'name = ' . $name . '<br>';
-
         // Соединение с БД
         $db = Db::getConnection();
 

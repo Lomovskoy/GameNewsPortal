@@ -1,6 +1,11 @@
 <?php
 //Массив с роутами (путями) для класса Router
 return array(
+    //Показать новость для изменения
+    'upload_new_view' => 'news/viewNewsListByCategory/',
+    
+    //Добавить новость
+    'add_article' => 'news/addNews/',
     
     //Добавить партнёра
     'add_partners' => 'update/addPartners/',

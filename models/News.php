@@ -101,6 +101,9 @@ class News {
             p.section = :id 
             AND 
             p.public_flag = 1
+        ORDER BY 
+            p.date 
+        DESC
         ';
 
     
@@ -185,4 +188,80 @@ class News {
         
         return $result->fetch();
     }
+    
+    public static function getPath($sectionId){
+        
+        // Соединение с БД
+        $db = Db::getConnection();
+        
+        $sql = 'SELECT 	folder_name FROM sections WHERE id = :id';
+        // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id', $sectionId, PDO::PARAM_INT);
+        
+        // Указываем, что хотим получить данные в виде массива
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        // Выполнение коменды
+        $result->execute();
+        
+        return $result->fetch();
+        
+    }
+    
+    public static function addNews($autor,$sectionId,$publicing,$new_or_forum,$caption,$description,$image,$data,$uploaddir=""){
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = 'INSERT INTO post_or_news (
+                id_user, 
+                section, 
+                public_flag, 
+                news_or_forum, 
+                caption, 
+                description, 
+                image, 
+                date
+            )
+            VALUES (
+                :id_user, 
+                :section, 
+                :public_flag, 
+                :news_or_forum, 
+                :caption, 
+                :description, 
+                :image, 
+                :date
+            )';
+
+        // Получение и возврат результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':id_user', $autor, PDO::PARAM_INT);
+        $result->bindParam(':section', $sectionId, PDO::PARAM_INT);
+        $result->bindParam(':public_flag', $publicing, PDO::PARAM_BOOL);
+        $result->bindParam(':news_or_forum', $new_or_forum, PDO::PARAM_BOOL);
+        $result->bindParam(':caption', $caption, PDO::PARAM_STR);
+        $result->bindParam(':description', $description, PDO::PARAM_STR);
+        $result->bindParam(':image', $image, PDO::PARAM_STR);
+        $result->bindParam(':date', $data, PDO::PARAM_STR);
+        echo 2;
+        //************************* ЗАГРУЗКА ИЗОБРАЖЕНИЯ ***********************
+        // Проверяем загружен ли файл
+        if(is_uploaded_file($_FILES["image"]["tmp_name"])){
+            //print "Файл успешно загружен.";
+            // Если файл загружен успешно, перемещаем его
+            // из временной директории в конечную
+            if (move_uploaded_file($_FILES['image']['tmp_name'], "$uploaddir/$image")) {
+                //print "Файл успешно перемещён";
+                return $result->execute();
+            } else {
+                //print "Ошибка перемещения";
+            }
+        }
+        else {
+             return $result->execute();
+        }
+        return false;
+    }
+
 }

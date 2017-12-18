@@ -9,6 +9,9 @@
             </small>
         </div>
         <hr>
+        <?php foreach ($errors as $error): ?>
+                <li> - <?php echo $error; ?></li>
+            <?php endforeach; ?>
         <div class="row">
              <?php if ($_SESSION['user']['rang']!= 1): ?> 
                 <div class="col-3">
